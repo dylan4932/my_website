@@ -1,0 +1,214 @@
+.about{
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15% 6% 12% 15%;
+}
+
+.experience{
+    padding: 6% 6% 12% 6%;
+}
+
+
+.about-img img{
+    border-radius: 50%;
+    width: 20vw;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+
+@media (max-width: 986px) {
+   
+    .about{
+        display: grid;
+    }
+
+    .about-img img{
+        width: 300px;
+        margin: auto 0;
+        border-radius: 20px;
+    }
+}
+.heading {
+    text-align: center;
+    font-size: 4.5rem;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+}
+
+.heading span{
+    color: #3975EA;
+}
+
+.about-content h2{
+    text-align: left;
+    line-height: 1.2;
+    cursor: default;
+}
+
+.about-content h3{
+    font-size: 2.2rem;
+    margin-bottom: 2.2rem;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    cursor: default;
+}
+
+.about-content p {
+    font-size: 16px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    cursor: default;
+}
+
+.about-btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: #3975EA;
+    box-shadow: 0 0 10px #3975EA;
+    border-radius: 4rem;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    margin: 3rem 0 2rem;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    cursor: pointer;
+    border: none;
+}
+
+.about-btn:hover{
+    box-shadow: none;
+}
+
+.back-btn{
+    position: fixed;
+    top: 5.5rem;
+    right: 4rem;
+    width: 5rem;
+    line-height: 2;
+    background: #3975EA;
+    box-shadow: 0 0 10px #3975EA;
+    border-radius: 4rem;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffff;
+    text-decoration: none;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    cursor: pointer;
+    border: none;
+}
+
+.back-btn:hover:hover{
+    box-shadow: none;
+}
+
+
+.experience h2{
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    cursor: default;
+}
+
+.experience-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 10rem 10rem;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+}
+
+.experience-container.deactive{
+    display: none;
+}
+
+.experience-container .experience-box{
+    flex: 1 1 10rem;
+    background: #323842;
+    padding: 3rem 1rem 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: .2rem solid #20242C;
+    transition: .5s ease;
+}
+
+
+
+.experience-container .new-box{
+    background: #323842;
+    padding: 3rem 1rem 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+}
+
+@media (max-width: 720px) {
+    .experience-container .experience-box{
+        min-width: 300px;
+    }
+    
+    .experience-container .new-box{
+        min-width: 300px;
+    }
+}
+
+
+.experience-container .new-box h1{
+    font-size: 24px;
+    font-weight: 600;
+    color: #AADAFA;
+}
+.experience-container .new-box h2{
+    font-size: 24px;
+    font-weight: 600;
+    color: #71C4AE;
+}
+.experience-container .new-box h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: #BC89BD;
+}
+
+#new-content p{
+    text-align: left;
+    margin: 2.8rem;
+}
+
+.new-box p {
+    font-size: 1rem;
+    margin: 1rem 0;
+    cursor: default;
+}
+
+.experience-container .experience-box:hover{
+    border-color: #3975EA;
+    transform: scale(1.02);
+}
+
+.experience-box h3{
+    font-size: 1.4rem;
+    cursor: default;
+}
+
+.experience-box p {
+    font-size: 1rem;
+    margin: 1rem 0;
+    cursor: default;
+}
+

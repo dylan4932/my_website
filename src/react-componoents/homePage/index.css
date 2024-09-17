@@ -1,0 +1,17 @@
+.homepage{
+    display: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.main-content{
+    
+    background-color: #1f242d;
+    color: white;
+    transition: all 0.5s ease;
+    width: 100%;
+    min-width: 550px;
+}
+
+
