@@ -11,7 +11,7 @@ class  pageFooter extends React.Component {
         return (
             
             <div className='footer'>
-                <p className='footer-text'> Copyright &copy; 2023 by Dylan | All right Reserved</p>
+                <p className='footer-text'> Copyright &copy; 2024 by Dylan | All right Reserved</p>
             </div>
         )
     }
