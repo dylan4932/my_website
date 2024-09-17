@@ -38,8 +38,8 @@ app.get("*", (req, res) => {
 // // https server listening...
 
 const httpsOption = {
-    key: fs.readFileSync("./https/www.dylan4932.com.key"),
-    cert: fs.readFileSync("./https/www.dylan4932.com_bundle.crt")
+    key: fs.readFileSync("./https/dylan4932.com.key"),
+    cert: fs.readFileSync("./https/dylan4932.com_bundle.crt")
 }
 
 http.createServer(app).listen(80);
