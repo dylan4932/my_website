@@ -11,7 +11,7 @@ class  homeContent extends React.Component {
    
     componentDidMount() {
       const options = {
-        strings: ['Software Developer', 'Data Analyst', 'Snowboarder🏂'],
+        strings: ['Software Developer', 'Data Scientist', 'Snowboarder🏂'],
         typeSpeed: 100,
         backSpeed: 100,
         backDelay: 1000,

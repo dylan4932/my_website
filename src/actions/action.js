@@ -28,15 +28,22 @@ export const read_exp = (num) => {
     backBtn.setAttribute('onclick','window.location.reload()')
 
     const input = [
-        [ "<p>Developed and maintained a health literature application using Java and Python. Collaborated with cross-functional teams to design software solutions and implemented Agile Development Methodologies to the software life-cycle.</p> <p> Created a comprehensive set of automated and manual tests to verify that all application services functionalities. Identified several problems with the user-interaction functionality and resolved them by implementing an Ajax request (an asynchronous request) to prevent blocking the main thread.</p><p>Implemented Django REST to develop a portion of the back-end services that supported a range of user features, along with AWS cloud services and rational database models in Oracle SQL. Implemented robust security techniques such as multi-factor authentication and firewalls to enhance data privacy.</p><p>Effectively manage, maintain and monitor stakeholders’ data, including data processing, and database management using SAS, Excel, SQL and data governance, to ensure the health and integrity of the clinical data for research design.</p><p>Developed a key information extraction tool using Python to support clients in collecting and reviewing relevant medical literature, and performing Meta-analysis on a series of literature, thereby enhancing research efficiency and efficacy.</p><p>Developed Hypothesis testing protocols and statistical research methods with clinical experts for clinical research pre-experiments.</p>"],
-        [ "<p>Collaborated with cross-functional teams to devise optimal solutions that align with business requirements and adhere to best practices in software development. Acquired expertise in software development life cycle (SDLC) and agile development methodology.</p><p>Conducted IT solutions research, performed system analysis, created testing plans, and tested new features and APIs using Jest and Selenium. As well as focused on improving performance, quality, and scalability through various enhancements.</p><p>Developed technical documents to accurately represent the design and maintain web applications with a prominent level of code quality.</p><p>Retrieving data from various data sources using data mining techniques, writing SAS programs/SQL queries from multiple data sources, building datasets, validating data, analyzing, designing, building, and enhancing reports.</p><p>Assessed and analyzed different methods of expanding the revenue streams for clients using techniques such as SWOT, PESTLE, and Porter’s 5 Forces, presented them with well-reasoned and informative justification with reports and dashboards.</p><p>Developed quantitative analyses, qualitative analyses, and ad hoc reports to identify key issues and improve complex business processes.</p>"],
-        [ "<p>Developed strong understanding of precious metal products to provide informative descriptions of company offerings to prospective customers, ultimately driving business initiatives. </p><p>Coordinated bank marketing activities by organizing and implementing strategic plans with objective of boosting company services.</p><p>Demonstrated exceptional communication skills by directly liaising with customers regarding management of personal banking accounts.</p><p>Maintained confidentiality of bank records and client information to prevent mishandling of data and potential breaches.</p><p>Obtained knowledge of banking procedures and customer classification standards to appropriately meet customer needs.</p>"]
-    ]
-    if(num === 0){
-        const content1 = document.createElement('h1')
-        const line1 = document.createTextNode('Software Developer - Beijing Health Promotion Association');
-        const content2 = document.createElement('p')
-        const line2 = document.createTextNode('Beijing, China   2021/06 - 2023/01')
+        [
+            "<p>🚀 Integrated and developed websites with ERP systems utilizing Micro Services. Enhanced RESTful APIs, integrated systems with Microsoft Teams, and optimized inventory accuracy and user experience.</p>🔥<p>Designing cloud functions on the Google Cloud Platform (GCP) and running the backend with Python3 and Google Firebase. Streamlined and enhanced functionality by integrating multiple apps including Microsoft Teams, OnFleet, and Salesforce collaborated with the core stack.</p>⚙️<p>Conducted IT solutions research, performed system analysis, created testing plans, and integration testing using Selenium. Focused on improving performance, quality, and scalability, achieving 3x improvements by refactoring queries and various enhancements.</p>📊<p>Actively resolved software issues tracked in Jira and DataDog, offered technical support during on-call rotation, and assisted internal users and customers with technical support and guidance, resulting in a 20% customer satisfaction improvement.</p>"
+        ],
+        [
+            "<p>💻 Developed and maintained a health literature application using Java and Python. Collaborated with cross-functional teams to design software solutions and implemented Agile Development Methodologies to the software life-cycle.</p>🛠️<p>Created a comprehensive set of automated and manual tests to verify all application service functionalities. Identified several problems with the user-interaction functionality and resolved them by implementing Ajax requests to prevent blocking the main thread.</p>🔐<p>Implemented Django REST to develop a portion of the back-end services that supported a range of user features, along with AWS cloud services and rational database models in Oracle SQL. Implemented robust security techniques such as multi-factor authentication and firewalls to enhance data privacy.</p>📊<p>Effectively managed, maintained, and monitored stakeholders’ data, including data processing and database management using SAS, Excel, SQL, and data governance, to ensure the health and integrity of clinical data for research design.</p>🤖<p>Developed a key information extraction tool using Python to support clients in collecting and reviewing relevant medical literature and performing Meta-analysis on a series of literature, thereby enhancing research efficiency and efficacy.</p>📑<p>Developed Hypothesis testing protocols and statistical research methods with clinical experts for clinical research pre-experiments.</p>"
+        ],
+        [
+            "<p>🤝 Collaborated with cross-functional teams to devise optimal solutions that align with business requirements and adhere to best practices in software development. Acquired expertise in software development life cycle (SDLC) and agile development methodology.</p>🔍<p>Conducted IT solutions research, performed system analysis, created testing plans, and tested new features and APIs using Jest and Selenium. Focused on improving performance, quality, and scalability through various enhancements.</p>📄<p>Developed technical documents to accurately represent the design and maintain web applications with a prominent level of code quality.</p>📊<p>Retrieving data from various data sources using data mining techniques, writing SAS programs/SQL queries from multiple data sources, building datasets, validating data, analyzing, designing, building, and enhancing reports.</p>📈<p>Assessed and analyzed different methods of expanding the revenue streams for clients using techniques such as SWOT, PESTLE, and Porter’s 5 Forces, presented them with well-reasoned and informative justification with reports and dashboards. Utilized quantitative analyses, qualitative analyses, and ad hoc reports to identify key issues and improve complex business processes.</p>"
+        ]
+    ];
+
+    if(num===0){
+        const content1 = document.createElement('h3')
+        const line1 = document.createTextNode('Software Developer - Biiibo Inc.');
+        const content2 = document.createElement('p');
+        const line2 = document.createTextNode('Toronto, Canada   2023/07 - Present');
 
         content1.appendChild(line1)
         content2.appendChild(line2)
@@ -46,26 +53,27 @@ export const read_exp = (num) => {
         newBox.appendChild(backBtn)
         newCon.appendChild(newBox)
         section.appendChild(newCon)
-    }else if(num===1){
+
+    } else if (num===1) {
+        const content1 = document.createElement('h1')
+        const line1 = document.createTextNode('Full Stack Developer - Beijing Health Promotion Association');
+        const content2 = document.createElement('p')
+        const line2 = document.createTextNode('Beijing, China   2021/06 - 2023/06')
+
+        content1.appendChild(line1)
+        content2.appendChild(line2)
+        content2.appendChild(typedCon)
+        newBox.appendChild(content1)
+        newBox.appendChild(content2)
+        newBox.appendChild(backBtn)
+        newCon.appendChild(newBox)
+        section.appendChild(newCon)
+
+    } else if (num === 2) {
         const content1 = document.createElement('h2')
         const line1 = document.createTextNode('Web Developer Intern - Ivory Business Solutions');
         const content2 = document.createElement('p')
         const line2 = document.createTextNode('Toronto, Canada   2020/09 - 2020/12')
-
-        content1.appendChild(line1)
-        content2.appendChild(line2)
-        content2.appendChild(typedCon)
-        newBox.appendChild(content1)
-        newBox.appendChild(content2)
-        newBox.appendChild(backBtn)
-        newCon.appendChild(newBox)
-        section.appendChild(newCon)
-    }else if(num===2){
-        const content1 = document.createElement('h3')
-        const line1 = document.createTextNode('Banking Intern - Industrial & Commercial Bank of China');
-        const content2 = document.createElement('p');
-        const line2 = document.createTextNode('Xunyang, China   2019/07 - 2019/08');
-
         content1.appendChild(line1)
         content2.appendChild(line2)
         content2.appendChild(typedCon)
