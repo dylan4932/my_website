@@ -172,21 +172,17 @@
     }
 }
 
-.heading {
+.heading, .heading-text {
     text-align: center;
     font-size: 4.5rem;
     opacity: 0;
     animation: slideBottom 1s ease forwards;
+    width: 100%;
+    display: block;
 }
 
-.heading span{
+.heading span, .heading-text span {
     color: #3975EA;
-}
-
-.about-content h2{
-    text-align: left;
-    line-height: 1.2;
-    cursor: default;
 }
 
 .about-content h3{

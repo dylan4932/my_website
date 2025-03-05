@@ -29,8 +29,8 @@ const AboutContent = () => {
             </section>
 
             <section className='experience' id='experience'>
-                <h2 className='heading'>My <span>Experiences</span></h2>
-                <div className='experience-container'>
+                <h2 className='heading-text'>My <span>Experiences</span></h2>
+                <div className='experience-container' id="exp-container">
                     <div className='experience-box'>
                         <div className='icon-container'>
                             <FaPython fontSize="4rem" color='#BC89BD'/>

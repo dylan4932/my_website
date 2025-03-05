@@ -10,7 +10,7 @@ export const btn_activator = () => {
 
 export const read_exp = (num) => {
     const section = document.getElementById('experience')
-    const container = document.getElementById('exp-container');
+    const container = document.querySelector('.experience-container');
     container.classList.toggle('deactive')
 
 
