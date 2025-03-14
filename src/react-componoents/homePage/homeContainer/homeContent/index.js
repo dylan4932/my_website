@@ -45,7 +45,7 @@ const HomeContent = () => {
                     <a href='https://www.facebook.com/profile.php?id=100007200255102' id='icon3'><FaFacebookF/></a>
                     <a href='https://twitter.com/dylan4932' id='icon4'><BsTwitter/></a>
                 </div>
-                <a href='https:dylan4932.com/my_files/resume.pdf' className='download-btn'>Download CV</a>
+                <a href='/my_files/resume.pdf' className='download-btn'>Download CV</a>
             </div>
             <div className='home-img'>
                 <img src={home_img} alt="home-img"></img>
