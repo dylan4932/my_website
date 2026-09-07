@@ -1,152 +1,96 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 import HomeContent from './homeContent';
 import AboutContent from './aboutContent';
-import {
-  AppBar,
-  Box,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Toolbar,
-  Typography,
-  useTheme,
-  useMediaQuery
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 
+const NAV_LINKS = [
+  { text: 'Home', href: '#home' },
+  { text: 'About', href: '#about' },
+  { text: 'Experience', href: '#experience' },
+  { text: 'Contact', href: '#contact' },
+];
+
+// The single, Apple-style sticky nav for the whole homepage. This replaces
+// the old MUI AppBar + legacy sidebar Navigator with one consolidated header.
 const HomeContainer = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  // Close the mobile menu whenever the viewport grows back to desktop size.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return undefined;
 
-  const menuItems = [
-    { text: 'Home', href: '#' },
-    { text: 'About', href: '#about' },
-    { text: 'Experience', href: '#experience' }
-  ];
+    const mediaQuery = window.matchMedia('(min-width: 900px)');
+    const handleChange = (e) => {
+      if (e.matches) setMenuOpen(false);
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
-  const drawer = (
-    <List>
-      {menuItems.map((item) => (
-        <ListItem 
-          button 
-          key={item.text} 
-          component="a" 
-          href={item.href}
-          onClick={() => setMobileOpen(false)}
-        >
-          <ListItemText primary={item.text} />
-        </ListItem>
-      ))}
-    </List>
-  );
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <Box sx={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      minHeight: '100vh',
-      margin: 0,
-      padding: 0,
-      width: '100%',
-      overflowX: 'hidden'
-    }}>
-      <AppBar position="fixed" color="default" elevation={0}>
-        <Toolbar sx={{ px: { xs: 1, sm: 2 } }}>
-          {isMobile && (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 1 }}
+    <div className="apple-page">
+      <header className="site-nav">
+        <div className="site-nav-inner">
+          <a href="#home" className="site-nav-logo" onClick={closeMenu}>
+            Yuan Ji
+          </a>
+
+          <nav className="site-nav-links" aria-label="Primary">
+            {NAV_LINKS.map((item) => (
+              <a key={item.text} href={item.href}>
+                {item.text}
+              </a>
+            ))}
+          </nav>
+
+          <div className="site-nav-actions">
+            <a
+              href="/my_files/resume.pdf"
+              className="pill-btn pill-btn-nav"
+              download
             >
-              <MenuIcon />
-            </IconButton>
-          )}
-          
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Dylan4932 - <span style={{ color: theme.palette.primary.main }}>Portfolio</span>
-          </Typography>
-
-          {!isMobile && (
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              {menuItems.map((item) => (
-                <Typography
-                  key={item.text}
-                  component="a"
-                  href={item.href}
-                  sx={{
-                    color: 'inherit',
-                    textDecoration: 'none',
-                    position: 'relative',
-                    '&:hover': {
-                      '&::after': {
-                        width: '100%'
-                      }
-                    },
-                    '&::after': {
-                      content: '""',
-                      position: 'absolute',
-                      bottom: -2,
-                      left: 0,
-                      width: 0,
-                      height: 2,
-                      backgroundColor: 'primary.main',
-                      transition: 'width 0.3s ease'
-                    }
-                  }}
-                >
-                  {item.text}
-                </Typography>
-              ))}
-            </Box>
-          )}
-        </Toolbar>
-      </AppBar>
-
-      <Drawer
-        variant="temporary"
-        anchor="left"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true
-        }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { 
-            boxSizing: 'border-box', 
-            width: 240,
-            border: 'none',
-            mt: '56px', // 为顶部工具栏留出空间
-          },
-        }}
-      >
-        {drawer}
-      </Drawer>
-
-      <Box component="main" sx={{ 
-        flexGrow: 1, 
-        width: '100%',
-        pt: { xs: 7, sm: 8 },
-        px: { xs: 0, sm: 0 }, // 移除左右padding
-        m: 0,
-        overflowX: 'hidden'
-      }}>
-        <div className='profolio-container'>
-          <HomeContent />
-          <AboutContent />
+              Download CV
+            </a>
+            <button
+              type="button"
+              className="site-nav-toggle"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
+            </button>
+          </div>
         </div>
-      </Box>
-    </Box>
+
+        <nav
+          className={`site-nav-mobile ${menuOpen ? 'is-open' : ''}`}
+          aria-label="Mobile"
+        >
+          {NAV_LINKS.map((item) => (
+            <a key={item.text} href={item.href} onClick={closeMenu}>
+              {item.text}
+            </a>
+          ))}
+          <a
+            href="/my_files/resume.pdf"
+            className="pill-btn pill-btn-nav-mobile"
+            download
+            onClick={closeMenu}
+          >
+            Download CV
+          </a>
+        </nav>
+      </header>
+
+      <main className="site-main">
+        <HomeContent />
+        <AboutContent />
+      </main>
+    </div>
   );
 };
 

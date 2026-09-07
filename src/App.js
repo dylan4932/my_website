@@ -4,61 +4,42 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import HomePage from './react-componoents/homePage';
 
-// 创建自定义主题
+// Apple-inspired light theme: white/off-white surfaces, near-black text,
+// and the signature Apple "system" blue for links and CTAs.
+const APPLE_FONT_STACK =
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+
 const theme = createTheme({
   palette: {
+    mode: 'light',
     primary: {
-      main: '#2196f3',
+      main: '#0071e3',
     },
     secondary: {
-      main: '#f50057',
+      main: '#1d1d1f',
     },
     background: {
-      default: '#1f242d',  // 更改为深色背景
-      paper: '#1f242d',    // 更改为深色背景
+      default: '#ffffff',
+      paper: '#f5f5f7',
     },
     text: {
-      primary: '#ffffff',  // 文字颜色改为白色
-    }
+      primary: '#1d1d1f',
+      secondary: '#86868b',
+    },
   },
   typography: {
-    fontFamily: '"Segoe UI", "Roboto", "Arial", sans-serif',
+    fontFamily: APPLE_FONT_STACK,
     h6: {
       fontWeight: 600,
-      color: '#ffffff',    // 标题文字颜色改为白色
+      color: '#1d1d1f',
     },
   },
   components: {
-    MuiAppBar: {
+    MuiCssBaseline: {
       styleOverrides: {
-        root: {
-          backgroundColor: '#1f242d',
-          color: '#ffffff',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-          borderBottom: '1px solid rgba(255,255,255,0.1)',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000,
-        },
-      },
-    },
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          backgroundColor: '#1f242d',
-          color: '#ffffff',
-        },
-      },
-    },
-    MuiListItem: {
-      styleOverrides: {
-        root: {
-          color: '#ffffff',
-          '&:hover': {
-            backgroundColor: 'rgba(255,255,255,0.1)',
-          },
+        body: {
+          backgroundColor: '#ffffff',
+          color: '#1d1d1f',
         },
       },
     },
