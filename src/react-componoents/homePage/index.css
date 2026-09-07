@@ -1,17 +1,12 @@
-.homepage{
-    display: fixed;
-    top: 0;
-    left: 0;
+.homepage {
     width: 100%;
+    background-color: var(--color-bg);
 }
 
-.main-content{
-    
-    background-color: #1f242d;
-    color: white;
-    transition: all 0.5s ease;
+.main-content {
+    background-color: var(--color-bg);
+    color: var(--color-text);
     width: 100%;
-    min-width: 550px;
+    min-width: 320px;
+    overflow-x: hidden;
 }
-
-

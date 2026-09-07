@@ -2,175 +2,203 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 ::-webkit-scrollbar {
-    display: none;
+    width: 10px;
 }
 
-.header{
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-pill);
+}
+
+.apple-page {
+    width: 100%;
+    background-color: var(--color-bg);
+}
+
+/* ---------- Sticky, frosted Apple-style nav ---------- */
+
+.site-nav {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 20px 10%;
+    right: 0;
+    z-index: 1000;
+    height: var(--nav-height);
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav-inner {
+    height: var(--nav-height);
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 22px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    justify-content: space-between;
 }
 
-.logo{
-    font-size: 25px;
-    color: #fff;
-    text-decoration: none;
+.site-nav-logo {
+    font-size: 15px;
     font-weight: 600;
-    cursor: default;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-}
-
-.logo span{
-    color: #3975EA;
-}
-
-.navbar a{
-    display: inline-block;
-    font-size: 18px;
-    color: #fff;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
     text-decoration: none;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: .3s;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    transition: .3s ease-in-out;
+    white-space: nowrap;
 }
 
-@media (max-width: 1280px) {
-    .navbar{
+.site-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+}
+
+.site-nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text);
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.site-nav-links a:hover {
+    opacity: 1;
+    color: var(--color-accent);
+}
+
+.site-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.site-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 22px;
+    line-height: 0;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.site-nav-mobile {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.96);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.site-nav-mobile.is-open {
+    max-height: 360px;
+}
+
+.site-nav-mobile a {
+    padding: 14px 22px;
+    font-size: 17px;
+    color: var(--color-text);
+    text-decoration: none;
+    border-top: 1px solid var(--color-border);
+}
+
+.pill-btn-nav-mobile {
+    margin: 14px 22px 18px;
+    text-align: center;
+}
+
+/* ---------- Pill buttons (shared) ---------- */
+
+.pill-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-weight: 400;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+        color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.pill-btn:active {
+    transform: scale(0.97);
+}
+
+.pill-btn-nav {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    font-size: 12px;
+    padding: 7px 16px;
+}
+
+.pill-btn-nav:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.pill-btn-primary {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    font-size: 17px;
+    padding: 12px 24px;
+}
+
+.pill-btn-primary:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.pill-btn-secondary {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    font-size: 17px;
+    padding: 11px 24px;
+}
+
+.pill-btn-secondary:hover {
+    background-color: rgba(0, 113, 227, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pill-btn,
+    .site-nav-mobile {
+        transition: none;
+    }
+}
+
+@media (max-width: 899px) {
+    .site-nav-links,
+    .pill-btn-nav {
         display: none;
     }
 
+    .site-nav-toggle {
+        display: inline-flex;
+    }
+
+    .site-nav-mobile {
+        display: flex;
+    }
 }
 
-#nav1{
-    animation-delay:  .2s;
-}
+/* ---------- Main content ---------- */
 
-#nav2{
-    animation-delay:  .4s;
-}
-#nav3{
-    animation-delay:  .6s;
-}
-
-#nav4{
-    animation-delay:  .8s;
-}
-#nav5{
-    animation-delay:  1s;
-}
-
-
-.navbar a:hover,
-.navbar a.active{
-    color:#3975EA ;
-}
-
-.navbar a .liner{
+.site-main {
     width: 100%;
-    background-color: #3975EA;
-    height: 1px;
-    opacity: 0;
-}
-
-.navbar a:hover .liner{
-    animation: updateRight .5s ease  forwards;
-}
-
-
-
-@keyframes slideRight {
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideLeft {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideTop {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideBottom {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes updateRight {
-    0% {
-        transform:scaleX(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scaleX(1);
-        opacity: 1;
-    }
-}
-
-@keyframes zoomIn {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes floatImage {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-24px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    padding-top: var(--nav-height);
 }
